@@ -1,0 +1,22 @@
+# Virtual environments
+AID/
+env/
+__pycache__/
+
+# Python
+*.pyc
+*.pyo
+*.so
+
+# ML / Large files
+*.pt
+*.pth
+*.onnx
+*.h5
+
+# Dataset
+data/
+datasets/
+
+# OS
+.DS_Store
