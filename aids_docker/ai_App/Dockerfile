@@ -23,6 +23,12 @@ RUN pip install --upgrade pip
 # Install Python packages
 COPY requirements.txt .
 RUN pip install -r requirements.txt
+# RUN pip install \
+#     opencv-python \
+#     ultralytics \
+#     psycopg2-binary \
+#     numpy \
+#     matplotlib
 
 # Default command
 CMD [ "bash" ]
