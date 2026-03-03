@@ -21,12 +21,8 @@ RUN apt-get update && apt-get install -y \
 RUN pip install --upgrade pip
 
 # Install Python packages
-RUN pip install \
-    opencv-python \
-    ultralytics \
-    psycopg2-binary \
-    numpy \
-    matplotlib
+COPY requirements.txt .
+RUN pip install -r requirements.txt
 
 # Default command
 CMD [ "bash" ]
