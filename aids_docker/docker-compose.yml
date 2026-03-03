@@ -1,0 +1,28 @@
+services:
+
+  vet_db:
+    image: postgres:15
+    container_name: vet_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: vetuser
+      POSTGRES_PASSWORD: vetpass123
+      POSTGRES_DB: vet_ai_db
+    volumes:
+      - vet_db_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  vet_ai:
+    build: ./ai_app
+    container_name: vet_ai
+    volumes:
+      - /mnt/d/arpit/projects/aids_docker:/workspace
+    depends_on:
+      - vet_db
+    ports:
+      - "5000:5000"
+    command: tail -f /dev/null
+
+volumes:
+  vet_db_data:
